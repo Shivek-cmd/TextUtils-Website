@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg ${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <a className="navbar-brand" href="#">
           {props.title}
-        </Link>
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,14 +22,14 @@ function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <a className="nav-link active" aria-current="page" href="#">
                 Home
-              </Link>
+              </a>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              {/* <Link className="nav-link" to="/about">
                 About
-              </Link>
+              </Link> */}
             </li>
           </ul>
           <div
