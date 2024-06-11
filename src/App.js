@@ -4,8 +4,8 @@ import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
 import PropTypes from "prop-types";
 import Alert from "./Components/Alert";
-// import About from "./Components/About";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./Components/About";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -22,22 +22,19 @@ function App() {
   };
 
   const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "#042743";
-      showAlert("Dark Mode has been enabled", "success");
-      document.title = "Textutils - Dark Mode";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-      showAlert("Light Mode has been enabled", "success");
-      document.title = "Textutils - Light Mode";
-    }
+    const newMode = mode === "light" ? "dark" : "light";
+    const bgColor = newMode === "light" ? "white" : "#042743";
+    const title = newMode === "light" ? "Light" : "Dark";
+
+    setMode(newMode);
+    document.body.style.backgroundColor = bgColor;
+    showAlert(`${title} Mode has been enabled`, "success");
+    document.title = `TextUtils - ${title} Mode`;
   };
 
   return (
     <>
-      {/* <Router>
+      <Router>
         <Navbar
           title="TextUtils"
           aboutText="About TextUtils"
@@ -59,17 +56,7 @@ function App() {
             />
           </Routes>
         </div>
-      </Router> */}
-      <Navbar
-        title="TextUtils"
-        aboutText="About TextUtils"
-        toggleMode={toggleMode}
-      />
-      <TextForm
-        heading="Enter the text to analyze below"
-        mode={mode}
-        showAlert={showAlert}
-      />
+      </Router>
     </>
   );
 }
@@ -80,6 +67,3 @@ Navbar.propTypes = {
 };
 
 export default App;
-// Navbar.defaultProps = {
-//   aboutText: "About",
-// };

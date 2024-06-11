@@ -67,35 +67,35 @@ function TextForm(props) {
       <button
         className="btn btn-primary mx-2"
         onClick={handleConvertToUpperCase}
-        disabled={text.trim() === ""}
+        disabled={text.length === 0}
       >
         Convert To Uppercase
       </button>
       <button
         className="btn btn-primary mx-2"
         onClick={handleConvertToLowerCase}
-        disabled={text.trim() === ""}
+        disabled={text.length === 0}
       >
         Convert To Lowercase
       </button>
       <button
         className="btn btn-primary mx-2"
         onClick={clearText}
-        disabled={text.trim() === ""}
+        disabled={text.length === 0}
       >
         Clear Text
       </button>
       <button
         className="btn btn-primary mx-2"
         onClick={handleCopy}
-        disabled={text.trim() === ""}
+        disabled={text.length === 0}
       >
         Copy Text
       </button>
       <button
         className="btn btn-primary mx-2"
         onClick={handleExtraSpaces}
-        disabled={text.trim() === ""}
+        disabled={text.length === 0}
       >
         Remove Extra Spaces
       </button>
@@ -110,11 +110,7 @@ function TextForm(props) {
         </p>
         <p>{estimatedReadingTime.toFixed(2)} minutes to read</p>
         <h2>Preview</h2>
-        <p>
-          {text.length > 0
-            ? text
-            : "Enter something in the textbox to preview it here"}
-        </p>
+        <p>{text.length > 0 ? text : "Nothing to preview!!!"}</p>
       </div>
     </>
   );
